@@ -1,2 +1,2 @@
-# PyCelonisExamples
-Open Repository of scripts using PyCelonis
+# PyCelonis Examples
+Open Repository of scripts using PyCelonis. 
