@@ -38,4 +38,24 @@ def get_columns(trans, table_name):
         z.append([row[5],row[6]])
     return z
 
+## Get pool from Celonis object
+def get_pool(c, pool):
+    return c.pools.find(pool)
+
+## Get job from pool
+def get_job(c, pool, job_name):
+    data_pool = get_pool(c, pool)
+    return data_pool.data_jobs.find(job_name)
+
+## Get sql code from all transformations in job
+## returns dict where the key is the name of the transformation
+def get_sql(job):
+    statements={}
+    for transformation in job.transformations.data:
+        if transformation.statement is None:
+            continue
+        statements[transformation.name] = transformation.statement.strip()
+    return statements
+
+
 
